@@ -1,12 +1,9 @@
-import ReactDOM from 'react-dom/client';
 import React,{Component} from 'react';  
 import './css/card.css'
-import renderQuestionCrush from './App'
 import { Link } from 'react-router-dom';
 import datas from './data/crush.json'
 import { Helmet } from 'react-helmet';
 
-var question = "";
 
 const data = datas.data
 
