@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom/client';
 import React,{Component} from 'react';  
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';  
