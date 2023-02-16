@@ -18,8 +18,8 @@ export class Dashboard extends Component {
                 <title>Truthordare | Home</title>
             </Helmet>
         <div className="two">
-          <h1 className='title-dashboard'> Truth Or Dare Card
-            <span>Pilih Kartu Di Bawah</span>
+          <h1 className='title-dashboard'> Dari-Hati
+            <span>Know your partner</span>
           </h1>
         </div>
           <div className="owl-wrapper">
@@ -37,22 +37,21 @@ export class Dashboard extends Component {
             smartSpeed={1950}
             >  
               
-              <a>
               <Link to="/couple-card">
                 <div id="card" className="card">
                 </div>
               </Link>
-              </a>
-    
-              <a>
+
               <Link to="/crush-card">
                 <div id="card" className="card background-crush">
-                </div>
+                </div> 
               </Link>
-              </a>
               
             </OwlCarousel>
           </div>
+          <Link to="/about-card">
+          <p className='about-text'>About this game</p>
+          </Link>
         </section>
 
             )  

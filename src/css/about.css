@@ -1,0 +1,31 @@
+.title-dashboard-about {
+      background: black;  
+      background-size: 200%;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      -webkit-background-clip: text;
+      font-size: larger;
+      padding-top: 0px !important;
+  }
+
+  .paragraph {
+    padding-top: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 4px;
+    background-color: rgb(240, 240, 240);
+  }
+  .paragraph p {
+    font-family: 'Arial' !important;
+    font-size: small;
+    text-align: justify;
+    color: rgb(24, 24, 26);
+    text-indent: 12px; 
+  }
+
+  .back-icon-about {
+    width: 50px;
+    height: 50px;
+    margin: 20px 0 0 15px;
+  }
