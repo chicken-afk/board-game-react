@@ -2,6 +2,7 @@ import './App.css';
 import Dashboard from './home';
 import CrushCard from './crush';
 import CoupleCard from './couple';
+import AboutCard from './about';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ReactGA from 'react-ga';
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/" component={Dashboard} exact />
                 <Route path="/crush-card" component={CrushCard} />
                 <Route path="/couple-card" component={CoupleCard} />
+                <Route path="/about-card" component={AboutCard} />
             </Switch>
         </main>
 
