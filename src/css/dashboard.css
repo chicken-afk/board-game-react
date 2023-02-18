@@ -607,11 +607,11 @@ h1:after {
   padding : 0 10px 0 10px;
 
 }
-.header, h3 {
+.header h3 {
   font-size:small;
   color: black;
 }
-.header, a {
+.header a {
   color: red  !important;
   font-size: small !important;
 }
