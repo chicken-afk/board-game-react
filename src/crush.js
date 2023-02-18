@@ -3,6 +3,7 @@ import './css/card.css'
 import { Link } from 'react-router-dom';
 import datas from './data/crush.json'
 import { Helmet } from 'react-helmet';
+import Footer from './footer';
 
 
 const data = datas.data
@@ -49,7 +50,7 @@ export class CrushCard extends Component {
                 <img className='reload-button' src={require('./images/icons8-reset-100.png')} alt=""/>
             </Link>
             <a className='reload-text'>Tekan icon untuk mengganti kartu</a>
-
+            <Footer/>
             </section>
 
             )  
