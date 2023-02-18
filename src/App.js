@@ -16,6 +16,9 @@ function App() {
   return (
 
         <main>
+          <header className='header'>
+            <h3 >Support Developer? <a href='https://saweria.co/titikkomadev' target='__blank'>Disini tempatnya</a></h3>
+          </header>
             <Switch>
                 <Route path="/" component={Dashboard} exact />
                 <Route path="/crush-card" component={CrushCard} />

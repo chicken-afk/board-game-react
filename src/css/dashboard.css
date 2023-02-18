@@ -602,3 +602,16 @@ h1:after {
   text-decoration: underline;
   margin-bottom: 0px;
 }
+
+.header {
+  padding : 0 10px 0 10px;
+
+}
+.header, h3 {
+  font-size:small;
+  color: black;
+}
+.header, a {
+  color: red  !important;
+  font-size: small !important;
+}
