@@ -209,6 +209,14 @@ html {
     background-position: center;
   }
 
+  .background-friend {
+    /* background: url("../images/3.png"); */
+    background: url("../../public/cards/11.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   
 
 /* === BASE HEADING === */ 
