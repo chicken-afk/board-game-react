@@ -2,19 +2,22 @@ import React,{Component} from 'react';
 import './css/card.css'
 import { Link } from 'react-router-dom';
 import datas from './data/couple.json'
+import alldata from './data/all.json'
 import { Helmet } from 'react-helmet';
 
 
 
 const data = datas.data
+const tambahan = alldata.data
 
 export class CoupleCard extends Component {
 
     generateQuestion() {
-        var n = data.length;
+        var datas = data.concat(tambahan)
+        var n = datas.length;
         console.log('Panjang data', n)
         var random = Math.floor(Math.random() * n);
-        this.question = data[random]
+        this.question = datas[random]
     }
 
     render()  
