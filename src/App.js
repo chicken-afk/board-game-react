@@ -3,6 +3,7 @@ import Dashboard from './home';
 import CrushCard from './crush';
 import CoupleCard from './couple';
 import AboutCard from './about';
+import FriendCard from './friend';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ReactGA from 'react-ga';
@@ -51,6 +52,7 @@ function App() {
                 <Route path="/crush-card" component={CrushCard} />
                 <Route path="/couple-card" component={CoupleCard} />
                 <Route path="/about-card" component={AboutCard} />
+                <Route path="/friend-card" component={FriendCard} />
             </Switch>
         </main>
         

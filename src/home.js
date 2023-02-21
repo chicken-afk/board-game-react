@@ -47,6 +47,11 @@ export class Dashboard extends Component {
                 <div id="card" className="card background-crush">
                 </div> 
               </Link>
+
+              <Link to="/friend-card">
+                <div id="card" className="card background-friend">
+                </div> 
+              </Link>
               
             </OwlCarousel>
           </div>
