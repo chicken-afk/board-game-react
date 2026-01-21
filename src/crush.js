@@ -57,9 +57,9 @@ const CrushCard = () => {
                     <img src={require('./images/9.png')} alt=""/>
                 </div>
             </div>
-            <a href="#" onClick={handleReload}>
+            <button onClick={handleReload} style={{background: 'none', border: 'none', padding: 0, cursor: 'pointer'}}>
                 <img className='reload-button' src={require('./images/icons8-reset-100.png')} alt=""/>
-            </a>
+            </button>
             <p className='reload-text'>Tekan icon untuk mengganti kartu</p>
             <Footer/>
         </section>

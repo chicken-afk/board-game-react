@@ -74,9 +74,9 @@ const CardGame = ({
         </div>
       </div>
 
-      <a href="#" onClick={handleReload} aria-label="Ganti kartu">
+      <button onClick={handleReload} aria-label="Ganti kartu" style={{background: 'none', border: 'none', padding: 0, cursor: 'pointer'}}>
         <img className='reload-button' src={reloadIcon} alt="Ganti kartu" loading="lazy" />
-      </a>
+      </button>
       
       <p className='reload-text'>Tekan icon untuk mengganti kartu</p>
       
