@@ -20,7 +20,7 @@ export class Dashboard extends Component {
             </Helmet>
         <div className="two">
           <h1 className='title-dashboard'> Dari-Hati
-            <span>Know your partner</span>
+            <span>Pahami pasangan anda</span>
           </h1>
         </div>
           <div className="owl-wrapper">
