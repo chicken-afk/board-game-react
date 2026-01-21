@@ -1,4 +1,4 @@
-import React,{Component} from 'react';  
+import React, { useState, useEffect } from 'react';  
 import './css/card.css'
 import { Link } from 'react-router-dom';
 import datas from './data/couple.json'
@@ -10,54 +10,60 @@ import { Helmet } from 'react-helmet';
 const data = datas.data
 const tambahan = alldata.data
 
-export class CoupleCard extends Component {
+const CoupleCard = () => {
+    const [question, setQuestion] = useState('');
+    const [animating, setAnimating] = useState(false);
 
-    generateQuestion() {
-        var datas = data.concat(tambahan)
-        var n = datas.length;
-        console.log('Panjang data', n)
-        var random = Math.floor(Math.random() * n);
-        this.question = datas[random]
+    const generateQuestion = () => {
+        const allDatas = data.concat(tambahan);
+        const n = allDatas.length;
+        console.log('Panjang data', n);
+        const random = Math.floor(Math.random() * n);
+        return allDatas[random];
     }
 
-    render()  
-    {  
-      this.generateQuestion()
-      const code = this.question;
-      return (  
+    useEffect(() => {
+        setQuestion(generateQuestion());
+    }, []);
 
-            <section className='body-class'>
+    const handleReload = (e) => {
+        e.preventDefault();
+        setAnimating(true);
+        
+        setTimeout(() => {
+            setQuestion(generateQuestion());
+            setAnimating(false);
+        }, 50);
+    }
+
+    return (  
+        <section className='body-class'>
             <Helmet>
                 <title>Truthordare | CoupleCard</title>
             </Helmet>
 
-            <a>
             <Link to="/">
-             <img className="back-icon" src={require('./images/icons8-back-arrow-64.png')} alt=""/>
-             </Link>
-            </a>
+                <img className="back-icon" src={require('./images/icons8-back-arrow-64.png')} alt=""/>
+            </Link>
 
-            <a className='tap-card'>Tap Kartu Untuk Membuka</a>
-            <div className="card-open">
+            <p className='tap-card'>Tap Kartu Untuk Membuka</p>
+            <div className={`card-open ${animating ? 'card-animating' : ''}`} key={animating ? 'animating' : 'static'}>
                 <div className="fundo">
                     <img src={require('./images/8.png')} alt=""/>
-                    <div id="question" className="question-text-card"> {code}
+                    <div id="question" className="question-text-card"> {question}
                     </div>
                 </div>
                 <div className="frente">
                     <img src={require('./images/7.png')} alt=""/>
                 </div>
             </div>
-            <Link to="/couple-card">
+            <a href="#" onClick={handleReload}>
                 <img className='reload-button' src={require('./images/icons8-reset-100.png')} alt=""/>
-            </Link>
-            <a className='reload-text'>Tekan icon untuk mengganti kartu</a>
-
-            </section>
-
-            )  
-    }  
-  }  
+            </a>
+            <p className='reload-text'>Tekan icon untuk mengganti kartu</p>
+        </section>
+    )  
+}  
     
 
 export default CoupleCard  
