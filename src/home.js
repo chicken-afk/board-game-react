@@ -1,4 +1,4 @@
-import React,{Component} from 'react';  
+import React, { useState, useEffect } from 'react';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';  
 import 'owl.carousel/dist/assets/owl.theme.default.css';    
@@ -6,28 +6,48 @@ import './css/dashboard.css'
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Footer from './footer';
+import { fetchCards } from './utils/api';
 
 
-export class Dashboard extends Component {  
+const Dashboard = () => {
+  const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    render()  
-    {  
-      return (  
+  useEffect(() => {
+    fetchCards()
+      .then((data) => {
+        setCards(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
 
-        <section className="cards">
-            <Helmet>
-                <title>Truthordare | Home</title>
-            </Helmet>
-        <div className="two">
-          <h1 className='title-dashboard'> Dari-Hati
-            <span>Pahami pasangan anda</span>
-          </h1>
-        </div>
-          <div className="owl-wrapper">
-          <OwlCarousel items={3}  
-            className="owl-theme"  
-            loop  
-            margin={15} 
+  return (
+    <section className="cards">
+      <Helmet>
+        <title>Truthordare | Home</title>
+      </Helmet>
+      <div className="two">
+        <h1 className='title-dashboard'> Dari-Hati
+          <span>Pahami pasangan anda</span>
+        </h1>
+      </div>
+      <div className="owl-wrapper">
+        {loading && (
+          <p style={{ color: '#fff', textAlign: 'center', padding: '20px' }}>Memuat kartu...</p>
+        )}
+        {error && (
+          <p style={{ color: '#fff', textAlign: 'center', padding: '20px' }}>Gagal memuat kartu</p>
+        )}
+        {!loading && !error && cards.length > 0 && (
+          <OwlCarousel
+            className="owl-theme"
+            loop
+            margin={15}
             autoplay={true}
             autoplayHoverPause={true}
             center={true}
@@ -36,34 +56,32 @@ export class Dashboard extends Component {
             animateOut={'slide-up'}
             animateIn={'slide-down'}
             smartSpeed={1950}
-            >  
-              
-              <Link to="/couple-card">
-                <div id="card" className="card">
+          >
+            {cards.map((card) => (
+              <Link key={card.id} to={{ pathname: `/card/${card.id}`, state: { card } }}>
+                <div
+                  id="card"
+                  className="card"
+                  style={{
+                    backgroundImage: `url(${card.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  <p className='title-card'>{card.title}</p>
                 </div>
               </Link>
+            ))}
+          </OwlCarousel>
+        )}
+      </div>
+      <Link to="/about-card">
+        <p className='about-text'>About this game</p>
+      </Link>
+      <Footer />
+    </section>
+  );
+};
 
-              <Link to="/crush-card">
-                <div id="card" className="card background-crush">
-                </div> 
-              </Link>
+export default Dashboard;
 
-              <Link to="/friend-card">
-                <div id="card" className="card background-friend">
-                </div> 
-              </Link>
-              
-            </OwlCarousel>
-          </div>
-          <Link to="/about-card">
-          <p className='about-text'>About this game</p>
-          </Link>
-          <Footer/>
-        </section>
-
-            )  
-    }  
-  }  
-    
-
-export default Dashboard  
