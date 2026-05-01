@@ -4,6 +4,7 @@ import CrushCard from './crush';
 import CoupleCard from './couple';
 import AboutCard from './about';
 import FriendCard from './friend';
+import CardPage from './CardPage';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ReactGA from 'react-ga';
@@ -49,6 +50,7 @@ function App() {
           </header>
             <Switch>
                 <Route path="/" component={Dashboard} exact />
+                <Route path="/card/:id" component={CardPage} />
                 <Route path="/crush-card" component={CrushCard} />
                 <Route path="/couple-card" component={CoupleCard} />
                 <Route path="/about-card" component={AboutCard} />
