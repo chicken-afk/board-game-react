@@ -1,4 +1,4 @@
-const BASE_URL = 'http://109.123.232.134:8085/api/v1';
+const BASE_URL = 'https://card-backend.titikkomadev.site/api/v1';
 
 export const fetchCards = async () => {
   const response = await fetch(`${BASE_URL}/cards`);
